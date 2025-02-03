@@ -1,0 +1,169 @@
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  padding: 1.5rem 2rem;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.navbar.scrolled {
+  background: linear-gradient(180deg, rgba(26, 26, 26, 0.9) 0%, rgba(26, 26, 26, 0.7) 50%, transparent 100%);
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.nav-logo {
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: 2px;
+  opacity: 0.95;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.nav-item {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.nav-item:hover {
+  color: #FFB800;
+  opacity: 1;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.social-icon {
+  color: #fff;
+  font-size: 1.3rem;
+  transition: all 0.3s ease;
+  opacity: 0.9;
+}
+
+.social-icon:hover {
+  color: #FFB800;
+  opacity: 1;
+}
+
+.mobile-menu-btn {
+  display: none; /* Hidden by default */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+.hamburger {
+  display: block; /* Show hamburger icon */
+  width: 25px; /* Width of hamburger */
+  height: 3px; /* Height of hamburger */
+  background: #fff; /* White color for hamburger */
+  position: relative; /* Position relative for pseudo-elements */
+  transition: all 0.3s ease-in-out; /* Transition effect */
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: ''; /* Empty content for pseudo-elements */
+  position: absolute; /* Position absolute */
+  width: 25px; /* Width of pseudo-elements */
+  height: 3px; /* Height of pseudo-elements */
+  background: #fff; /* White color */
+  transition: all 0.3s ease-in-out; /* Transition effect */
+}
+
+.hamburger::before {
+  transform: translateY(-8px); /* Position the top bar */
+}
+
+.hamburger::after {
+  transform: translateY(8px); /* Position the bottom bar */
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+  .navbar {
+    background: rgba(26, 26, 26, 0.95); /* Solid background for mobile */
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .nav-menu {
+    position: fixed;
+    left: -100%;
+    top: 70px;
+    flex-direction: column;
+    background-color: rgba(26, 26, 26, 0.95);
+    width: 100%;
+    padding: 2rem;
+    transition: 0.3s;
+    gap: 2rem;
+    backdrop-filter: blur(10px);
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .hamburger {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: #fff;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .hamburger::before,
+  .hamburger::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 2px;
+    background: #fff;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .hamburger::before {
+    transform: translateY(-8px);
+  }
+
+  .hamburger::after {
+    transform: translateY(8px);
+  }
+
+  .hamburger.active {
+    background: transparent;
+  }
+
+  .hamburger.active::before {
+    transform: rotate(45deg);
+  }
+
+  .hamburger.active::after {
+    transform: rotate(-45deg);
+  }
+} 
