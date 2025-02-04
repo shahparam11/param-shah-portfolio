@@ -3,7 +3,7 @@
   width: 100%;
   top: 0;
   z-index: 1000;
-  padding: 1.5rem 2rem;
+  padding: 2rem 3rem;
   transition: all 0.3s ease;
   background: transparent;
 }
@@ -23,7 +23,7 @@
 
 .nav-logo {
   color: #fff;
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   font-weight: bold;
   text-decoration: none;
   letter-spacing: 2px;
@@ -32,40 +32,43 @@
 
 .nav-menu {
   display: flex;
-  gap: 3rem;
+  gap: 4rem;
   align-items: center;
 }
 
 .nav-item {
   color: #fff;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   letter-spacing: 2px;
   transition: all 0.3s ease;
   font-weight: 500;
   text-transform: uppercase;
+  padding: 0.5rem 1rem;
   opacity: 0.9;
 }
 
 .nav-item:hover {
   color: #FFB800;
+  transform: translateY(-2px);
   opacity: 1;
 }
 
 .social-icons {
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .social-icon {
   color: #fff;
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   transition: all 0.3s ease;
   opacity: 0.9;
 }
 
 .social-icon:hover {
   color: #FFB800;
+  transform: translateY(-2px);
   opacity: 1;
 }
 
@@ -104,7 +107,11 @@
 /* Mobile Responsive */
 @media screen and (max-width: 768px) {
   .navbar {
-    background: rgba(26, 26, 26, 0.95); /* Solid background for mobile */
+    padding: 1.5rem 2rem;
+  }
+
+  .nav-logo {
+    font-size: 2rem;
   }
 
   .mobile-menu-btn {
@@ -126,6 +133,10 @@
 
   .nav-menu.active {
     left: 0;
+  }
+
+  .nav-item {
+    font-size: 1.2rem;
   }
 
   .hamburger {
