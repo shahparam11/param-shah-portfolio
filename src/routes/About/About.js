@@ -31,7 +31,7 @@ const About = ({ scrollToSection }) => {
               transition={{ delay: 0.4, duration: 0.8 }}
             >
               Software Development Engineer
-            </motion.p>
+            </motion.p>I am
             <motion.p 
               className="profile-bio"
               initial={{ opacity: 0, y: 20 }}

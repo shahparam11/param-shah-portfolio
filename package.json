@@ -5,6 +5,7 @@
   "dependencies": {
     "cra-template": "1.2.0",
     "framer-motion": "^12.3.1",
+    "gh-pages": "^6.3.0",
     "react": "^19.0.0",
     "react-avatar": "^5.0.3",
     "react-dom": "^19.0.0",
@@ -16,8 +17,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "postbuild": "mkdir -p docs && xcopy /E /Y build\\* docs\\",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -36,5 +40,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "homepage": "https://yourusername.github.io/repository-name",
+  "devDependencies": {
+    "cross-env": "^7.0.3"
   }
 }
