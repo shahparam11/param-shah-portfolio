@@ -1,0 +1,115 @@
+.skills-container {
+  min-height: 100vh;
+  padding: 6rem 2rem;
+  background: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.skills-container h2 {
+  font-size: 3.5rem;
+  color: #fff;
+  margin-bottom: 4rem;
+  font-weight: 600;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.skill-category {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.skill-category:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.category-title {
+  font-size: 1.5rem;
+  color: #FFB800;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.category-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: #FFB800;
+  border-radius: 2px;
+}
+
+.skills-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+  background: rgba(255, 184, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.skill-icon {
+  font-size: 1.2rem;
+  color: #FFB800;
+}
+
+.skill-name {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 1200px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-container h2 {
+    font-size: 3rem;
+  }
+
+  .skill-category h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-container {
+    padding: 4rem 1rem;
+  }
+
+  .skills-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+  }
+} 

@@ -1,61 +1,39 @@
 .experience-container {
-  padding: 4rem 2rem;
-  background: transparent;
   min-height: 100vh;
+  padding: 6rem 2rem;
+  background: #1a1a1a;
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
-}
-
-.experience-container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    to right,
-    rgba(26, 26, 26, 1) 0%,
-    rgba(26, 26, 26, 0.95) 25%,
-    rgba(26, 26, 26, 0.5) 100%
-  );
-  z-index: 1;
 }
 
 .experience-container h2 {
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
+  font-size: 3.5rem;
   color: #fff;
-  position: relative;
-  z-index: 2;
+  margin-bottom: 4rem;
+  font-weight: 600;
 }
 
 .experience-cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
-  padding: 1rem;
+  max-width: 1400px;
+  width: 100%;
 }
 
 .experience-card {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(10px);
   border-radius: 20px;
   overflow: hidden;
   position: relative;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .experience-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .card-accent {
@@ -64,47 +42,50 @@
 }
 
 .card-content {
-  padding: 2rem;
-  position: relative;
+  padding: 2.5rem;
 }
 
-.card-content h3 {
-  font-size: 1.8rem;
+.card-header {
+  margin-bottom: 1.5rem;
+}
+
+.card-header h3 {
+  font-size: 2rem;
   color: #fff;
-  margin: 0;
+  margin-bottom: 0.5rem;
 }
 
-.card-content h4 {
-  font-size: 1.4rem;
-  color: rgba(255, 255, 255, 0.9);
-  margin: 0.5rem 0;
+.company {
+  font-size: 1.2rem;
+  color: #FFB800;
 }
 
-.date-location {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 1rem;
-  margin: 0.5rem 0;
+.card-meta {
+  display: flex;
+  justify-content: space-between;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
 }
 
-.card-content ul {
+.description-list {
   list-style: none;
   padding: 0;
-  margin: 1rem 0 0 0;
 }
 
-.card-content li {
-  margin-bottom: 1rem;
-  line-height: 1.6;
+.description-list li {
   color: rgba(255, 255, 255, 0.8);
-  position: relative;
+  margin-bottom: 1rem;
   padding-left: 1.5rem;
+  position: relative;
+  line-height: 1.6;
 }
 
-.card-content li::before {
-  content: "•";
-  color: #FFB800;
+.description-list li::before {
+  content: "→";
   position: absolute;
   left: 0;
+  color: #FFB800;
 }
 
 @media (max-width: 992px) {
@@ -112,26 +93,196 @@
     grid-template-columns: 1fr;
     max-width: 600px;
   }
+
+  .experience-container h2 {
+    font-size: 3rem;
+  }
 }
 
 @media (max-width: 480px) {
-  .experience-container h2 {
-    font-size: 2rem;
+  .experience-container {
+    padding: 4rem 1.5rem;
   }
 
-  .card-content h3 {
+  .card-header h3 {
+    font-size: 1.8rem;
+  }
+
+  .company {
+    font-size: 1.1rem;
+  }
+}
+
+.experience-section {
+  padding-top: 0;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.timeline-container {
+  position: relative;
+  padding: 2rem 0;
+  margin-left: 30px;
+  max-width: 800px;
+  width: 100%;
+}
+
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255, 184, 0, 0.3),
+    transparent
+  );
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+  margin-left: 30px;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -36px;
+  top: 24px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  background: #FFB800;
+  z-index: 1;
+}
+
+.timeline-content {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+  transform: translateX(10px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 184, 0, 0.2);
+}
+
+.experience-header {
+  margin-bottom: 1.2rem;
+}
+
+.experience-header h3 {
+  font-size: 1.8rem;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.company-name {
+  display: block;
+  font-size: 1.2rem;
+  color: #FFB800;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.experience-meta {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.meta-item svg {
+  color: #FFB800;
+  font-size: 1.1rem;
+}
+
+.experience-description {
+  list-style: none;
+  padding: 0;
+}
+
+.experience-description li {
+  position: relative;
+  padding-left: 1.8rem;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+.experience-description li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #FFB800;
+  font-weight: 500;
+}
+
+/* Hover effects */
+.timeline-content:hover .experience-header h3 {
+  color: #FFB800;
+  transition: color 0.3s ease;
+}
+
+.timeline-content:hover .experience-description li::before {
+  transform: translateX(3px);
+  transition: transform 0.3s ease;
+}
+
+@media screen and (max-width: 768px) {
+  .timeline-container {
+    margin-left: 20px;
+  }
+  
+  .timeline-item {
+    margin-left: 20px;
+  }
+
+  .timeline-marker {
+    left: -26px;
+  }
+
+  .experience-header h3 {
     font-size: 1.5rem;
   }
 
-  .card-content h4 {
-    font-size: 1.2rem;
+  .company-name {
+    font-size: 1.1rem;
   }
 
-  .date-location {
-    font-size: 0.9rem;
+  .experience-meta {
+    flex-direction: column;
+    gap: 0.8rem;
   }
 
-  .card-content li {
-    font-size: 0.9rem;
+  .experience-description li {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .experience-section {
+    padding-top: 60px;
   }
 }

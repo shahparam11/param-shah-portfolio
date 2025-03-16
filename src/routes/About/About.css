@@ -1,45 +1,135 @@
 .about-container {
-  height: 100vh; /* Fixed height for About section */
-  position: relative;
+  min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  overflow: hidden; /* Prevent scrolling within this section */
-  background: #1a1a1a;
 }
 
-.background-image {
-  position: absolute;
-  top: 0;
-  right: 0; /* Align to right edge */
-  width: 55%; /* Adjust width */
-  height: 100%;
-  background: url('/public/personal-photo2.jpg') no-repeat center;
-  background-size: cover;
-  z-index: 1;
-  opacity: 0.95;
-  filter: brightness(1.02) contrast(1.05);
+.about-content {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  padding: 2rem 0;
 }
 
-.about-overlay {
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.greeting {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+}
+
+.name {
+  font-size: 4.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--text-primary);
+}
+
+.accent {
+  color: var(--primary-color);
+}
+
+.title-wrapper {
+  margin-top: 0.5rem;
+}
+
+.title {
+  font-size: 2rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.title-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.tag {
+  background: rgba(255, 184, 0, 0.1);
+  color: var(--primary-color);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.bio {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  max-width: 600px;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.cta-primary, .cta-secondary {
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.cta-primary {
+  background: var(--primary-color);
+  color: var(--bg-dark);
+}
+
+.cta-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.social-links a {
+  color: var(--text-secondary);
+  font-size: 1.5rem;
+  transition: var(--transition-smooth);
+}
+
+.social-links a:hover {
+  color: var(--primary-color);
+}
+
+.profile-image-container {
+  position: relative;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 120%;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.profile-image {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    to right,
-    rgba(26, 26, 26, 1) 0%,
-    rgba(26, 26, 26, 0.98) 30%,
-    rgba(26, 26, 26, 0.5) 70%,
-    rgba(26, 26, 26, 0.3) 100%
-  );
-  z-index: 1;
+  object-fit: cover;
 }
 
-/* Add this new style for a top gradient */
-.about-container::before {
-  content: '';
+.image-backdrop {
   position: absolute;
   top: 0;
   left: 0;
@@ -47,245 +137,111 @@
   height: 100%;
   background: linear-gradient(
     to bottom,
-    rgba(26, 26, 26, 0.9) 0%,
-    rgba(26, 26, 26, 0.8) 10%,
-    transparent 25%
+    transparent 0%,
+    rgba(10, 10, 10, 0.8) 100%
   );
-  z-index: 3;
-  pointer-events: none;
 }
 
-.about-content {
-  position: relative;
-  z-index: 4;
-  max-width: 1200px;
-  width: 100%;
-  padding: 0 2rem;
+.experience-highlights {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  right: 2rem;
   display: flex;
   justify-content: space-between;
+  gap: 1rem;
+}
+
+.highlight-item {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  margin-left: 12%;
+  gap: 0.5rem;
 }
 
-.about-text {
-  max-width: 650px;
-  flex: 1;
-  margin-right: 4rem;
+.highlight-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
 }
 
-.about-text h2 {
-  font-size: 3rem;
-  font-weight: 300;
-  margin: 0;
-  color: rgba(255, 255, 255, 0.9);
-  letter-spacing: 1px;
-  transition: color 0.3s ease;
-}
-
-.about-text h2:hover {
-  color: #FFB800;
-}
-
-.about-text h3 {
-  font-size: 2rem;
-  color: #ccc;
-  margin-bottom: 2rem;
-  transition: color 0.3s ease;
-}
-
-.about-text h1:hover {
-  color: #FFB800;
-}
-
-.about-text h3:hover {
-  color: #FFB800;
-}
-
-.about-text h1 {
-  font-size: 4rem;
-  color: #fff;
-  margin-bottom: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.about-text h1:hover .accent {
-  color: #FFB800;
-}
-
-.accent {
-  color: #fff;
-  transition: color 0.3s ease;
-}
-
-.about-description {
-  font-size: 1.2rem;
-  color: #999;
-  line-height: 1.6;
-}
-
-/* Update the profile image styles */
-.profile-image-container {
-    position: relative;
-    width: 500px;  /* Made smaller for circular shape */
-    height: 500px; /* Equal width and height for perfect circle */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: -50px;
-    overflow: hidden;
-    border-radius: 50%; /* Makes container circular */
-}
-
-.profile-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: relative;
-    z-index: 2;
-    filter: contrast(1.1);
-    /* Radial gradient for center brightness and circular fade */
-    mask-image: radial-gradient(
-        circle at center,
-        black 40%,
-        rgba(0, 0, 0, 0.8) 70%,
-        transparent 100%
-    );
-    -webkit-mask-image: radial-gradient(
-        circle at center,
-        black 40%,
-        rgba(0, 0, 0, 0.8) 70%,
-        transparent 100%
-    );
-}
-
-/* Update glow effect for circular shape */
-.profile-image-container::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(
-        circle at center,
-        rgba(255, 255, 255, 0.1) 0%,
-        transparent 70%
-    );
-    z-index: 1;
-    filter: blur(20px);
-    border-radius: 50%;
+.highlight-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-align: center;
 }
 
 /* Responsive Design */
-@media (max-width: 1400px) {
+@media screen and (max-width: 1365px) {
   .about-content {
-    margin-left: 8%;
-  }
-  
-  .about-text {
-    max-width: 600px;
-  }
-}
-
-@media (max-width: 1200px) {
-  .background-image {
-    width: 60%;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
   }
 
-  .about-text h1 {
-    font-size: 5rem;
-  }
-
-  .about-description {
-    font-size: 1.2rem;
-  }
-
-  .profile-image-container {
-    width: 450px;
-    height: 450px;
-    margin-right: -40px;
-  }
-}
-
-@media (max-width: 992px) {
-  .about-content {
-    flex-direction: column;
-    text-align: center;
-    margin-left: 0;
-  }
-
-  .about-text {
-    margin-right: 0;
-    margin-bottom: 3rem;
-  }
-
-  .profile-image-container {
-    width: 400px;
-    height: 400px;
-    margin-right: 0;
-    margin-top: 2rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .about-container {
-    height: 100vh;
-    overflow: hidden;
-  }
-
-  .background-image {
-    right: -15%;
-    width: 100%;
-    opacity: 0.4;
-  }
-
-  .about-overlay {
-    background: linear-gradient(
-      to right,
-      rgba(26, 26, 26, 0.98) 0%,
-      rgba(26, 26, 26, 0.95) 100%
-    );
-  }
-
-  .about-content {
-    margin-left: 0;
-    text-align: center;
-    padding: 0 1.5rem;
-  }
-
-  .about-text {
-    max-width: 100%;
-  }
-
-  .about-text h2 {
-    font-size: 2.5rem;
-  }
-
-  .about-text h1 {
+  .name {
     font-size: 4rem;
   }
+}
 
-  .about-description {
-    font-size: 1.1rem;
-    margin: 2rem auto 0;
-    max-width: 85%;
-    line-height: 1.7;
+@media screen and (max-width: 768px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-text {
+    text-align: center;
+    align-items: center;
+  }
+
+  .name {
+    font-size: 3.5rem;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .bio {
+    font-size: 1rem;
+  }
+
+  .title-tags {
+    justify-content: center;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .cta-primary, .cta-secondary {
+    text-align: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+  .image-wrapper {
+    padding-top: 100%;
+    max-width: 400px;
+    margin: 0 auto;
   }
 }
 
-@media (max-width: 480px) {
-  .about-text h1 {
+@media screen and (max-width: 375px) {
+  .name {
     font-size: 3rem;
   }
 
-  .about-text h3 {
+  .title {
     font-size: 1.5rem;
   }
 
-  .profile-image-container {
-    width: 300px;
-    height: 300px;
+  .highlight-number {
+    font-size: 2rem;
   }
 }
+
