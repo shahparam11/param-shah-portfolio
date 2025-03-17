@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaGithub, FaLinkedinIn, FaTwitter, FaBars, FaTimes } from 'react-icons/fa';
+import { FaGithub, FaLinkedinIn, FaTwitter, FaBars, FaTimes, FaUniversity, FaCalendarAlt, FaMapMarkerAlt, FaGraduationCap, FaArrowRight } from 'react-icons/fa';
 import './NavBar.css';
+import { motion } from 'framer-motion';
 
 const NavBar = ({ currentSection, scrollToSection }) => {
   const [scrolled, setScrolled] = useState(false);
