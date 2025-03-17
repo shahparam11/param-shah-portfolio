@@ -201,183 +201,255 @@ h3 {
 }
 
 /* Portfolio Section Styles */
+.projects-section {
+  padding: 4rem 0;
+  color: white;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  color: white;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+}
+
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 2rem;
-  margin-top: var(--space-xl);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .project-card {
-  position: relative;
-  border-radius: var(--border-radius-lg);
+  height: 300px;
+  border-radius: 12px;
   overflow: hidden;
-  height: 320px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  perspective: 1000px;
   cursor: pointer;
+  background-color: rgba(30, 30, 40, 0.6);
 }
 
-.project-card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
-}
-
-.project-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
+.project-card-inner {
+  position: relative;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
-  z-index: 1;
-  opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
 }
 
-.project-card:hover::before {
-  opacity: 1;
+.project-card.active .project-card-inner {
+  transform: rotateY(180deg);
+}
+
+.project-card-front, .project-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.project-card-front {
+  background-color: #1a1a1a;
+}
+
+.project-card-back {
+  background-color: rgba(35, 35, 45, 0.9);
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
 }
 
 .project-card-image {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.project-card-image::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s ease;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 30%, rgba(0,0,0,0) 100%);
 }
 
-.project-card:hover .project-card-image {
-  transform: scale(1.08);
-}
-
-.project-card-overlay {
+.project-card-title-wrapper {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   padding: 1.5rem;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.8) 60%, transparent 100%);
-  color: var(--text-light);
-  transform: translateY(65%);
-  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
   z-index: 2;
-}
-
-.project-card:hover .project-card-overlay {
-  transform: translateY(0);
-}
-
-.project-card-category {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: var(--color-primary);
-  background: rgba(0, 0, 0, 0.4);
-  padding: 0.35rem 0.8rem;
-  border-radius: 20px;
-  margin-bottom: 0.75rem;
-  border: 1px solid rgba(var(--color-primary-rgb), 0.3);
-  backdrop-filter: blur(4px);
+  text-align: left;
 }
 
 .project-card-title {
+  margin: 0;
   font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 0.75rem;
+  color: white;
+  font-weight: 600;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.project-card-category {
+  display: block;
+  font-size: 0.8rem;
+  color: #8a8eff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+.project-details {
   position: relative;
-  display: inline-block;
-}
-
-.project-card-title::after {
-  content: '';
-  position: absolute;
-  bottom: -6px;
-  left: 0;
-  width: 40px;
-  height: 3px;
-  background: var(--color-primary);
-  transition: width 0.3s ease;
-}
-
-.project-card:hover .project-card-title::after {
-  width: 100%;
-}
-
-.project-card p {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-  opacity: 0.9;
-}
-
-.project-card-links {
-  display: flex;
-  gap: 0.75rem;
-}
-
-.project-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+  z-index: 1;
+  text-align: center;
   background: rgba(255, 255, 255, 0.1);
-  color: var(--text-light);
-  transition: all 0.3s ease;
+  padding: 1.5rem;
+  border-radius: 8px;
+  backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.project-link:hover {
-  background: var(--color-primary);
-  color: var(--text-dark);
+.project-details h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.project-description {
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.project-links {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.project-link-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.card-blue .project-link-button {
+  background: rgba(100, 180, 255, 0.15);
+  border: 1px solid rgba(100, 180, 255, 0.3);
+}
+
+.card-purple .project-link-button {
+  background: rgba(180, 100, 255, 0.15);
+  border: 1px solid rgba(180, 100, 255, 0.3);
+}
+
+.card-green .project-link-button {
+  background: rgba(100, 255, 150, 0.15);
+  border: 1px solid rgba(100, 255, 150, 0.3);
+}
+
+.card-orange .project-link-button {
+  background: rgba(255, 180, 100, 0.15);
+  border: 1px solid rgba(255, 180, 100, 0.3);
+}
+
+.card-red .project-link-button {
+  background: rgba(255, 100, 100, 0.15);
+  border: 1px solid rgba(255, 100, 100, 0.3);
+}
+
+.card-teal .project-link-button {
+  background: rgba(100, 255, 220, 0.15);
+  border: 1px solid rgba(100, 255, 220, 0.3);
+}
+
+.project-link-button:hover {
+  background: rgba(255, 255, 255, 0.2);
   transform: translateY(-3px);
 }
 
-.mt-sm {
-  margin-top: 0.75rem;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 1200px) {
+@media (max-width: 1024px) {
   .projects-grid {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
-  .projects-grid {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
-  }
-  
   .project-card {
     height: 280px;
   }
-  
-  .project-card-overlay {
-    padding: 1.25rem;
-  }
-  
-  .project-card-title {
-    font-size: 1.25rem;
-  }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 576px) {
   .projects-grid {
     grid-template-columns: 1fr;
   }
-  
-  .project-card {
-    height: 250px;
-  }
-  
-  .project-card-overlay {
-    transform: translateY(55%);
-    padding: 1rem;
-  }
+}
+
+/* Different card colors */
+.card-blue .project-card-back {
+  background: linear-gradient(135deg, rgba(44, 62, 80, 0.8), rgba(76, 161, 175, 0.8));
+}
+
+.card-purple .project-card-back {
+  background: linear-gradient(135deg, rgba(74, 20, 140, 0.8), rgba(142, 36, 170, 0.8));
+}
+
+.card-green .project-card-back {
+  background: linear-gradient(135deg, rgba(27, 94, 32, 0.8), rgba(76, 175, 80, 0.8));
+}
+
+.card-orange .project-card-back {
+  background: linear-gradient(135deg, rgba(27, 94, 32, 0.8), rgba(76, 175, 80, 0.8));
+}
+
+.card-red .project-card-back {
+  background: linear-gradient(135deg, rgba(27, 94, 32, 0.8), rgba(76, 175, 80, 0.8));
+}
+
+.card-teal .project-card-back {
+  background: linear-gradient(135deg, rgba(27, 94, 32, 0.8), rgba(76, 175, 80, 0.8));
 }

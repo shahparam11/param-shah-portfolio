@@ -463,4 +463,133 @@
   .education-details {
     padding: 1rem 1.25rem;
   }
+}
+
+/* Education section styles */
+.section {
+  padding: 4rem 0;
+  color: white;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
+  color: white;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #8a8eff, rgba(138, 142, 255, 0.5));
+  margin-top: 0.5rem;
+  border-radius: 2px;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Education cards grid */
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 2rem;
+}
+
+/* Card design */
+.education-card {
+  background-color: rgba(30, 30, 40, 0.6);
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.education-card:hover {
+  box-shadow: 0 8px 25px rgba(138, 142, 255, 0.2);
+}
+
+.education-card-header {
+  padding: 1.5rem;
+  position: relative;
+}
+
+.degree-icon {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 1.5rem;
+  color: rgba(138, 142, 255, 0.6);
+}
+
+.education-degree {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  padding-right: 2rem;
+  color: white;
+}
+
+.education-card-body {
+  padding: 0 1.5rem 1.5rem;
+}
+
+.education-detail {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.detail-icon {
+  font-size: 1rem;
+  margin-right: 0.8rem;
+  color: rgba(138, 142, 255, 0.7);
+  min-width: 1rem;
+}
+
+.institution-name {
+  color: #8a8eff;
+  font-weight: 500;
+}
+
+.education-card-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(to bottom, #8a8eff, rgba(138, 142, 255, 0.3));
+  border-radius: 5px 0 0 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .education-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .education-degree {
+    font-size: 1.1rem;
+  }
 } 

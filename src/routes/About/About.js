@@ -31,7 +31,7 @@ const About = ({ scrollToSection }) => {
               transition={{ delay: 0.4, duration: 0.8 }}
             >
               Software Development Engineer
-            </motion.p>I am
+            </motion.p>
             <motion.p 
               className="profile-bio"
               initial={{ opacity: 0, y: 20 }}
@@ -54,9 +54,9 @@ const About = ({ scrollToSection }) => {
               >
                 View Resume
               </a>
-              <button className="btn btn-outline" onClick={() => scrollToSection('contact')}>
+              {/* <button className="btn btn-outline" onClick={() => scrollToSection('contact')}>
                 Contact Me
-              </button>
+              </button> */}
             </motion.div>
             <motion.div 
               className="profile-stats"

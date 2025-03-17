@@ -79,13 +79,13 @@ const NavBar = ({ currentSection, scrollToSection }) => {
             Skills
             {currentSection === 'skills' && <span className="active-indicator"></span>}
           </button>
-          <button 
+          {/* <button 
             className={`navbar-link ${currentSection === 'contact' ? 'active' : ''}`}
             onClick={() => scrollToSection('contact')}
           >
             Contact
             {currentSection === 'contact' && <span className="active-indicator"></span>}
-          </button>
+          </button> */}
         </div>
 
         {/* Social Links */}

@@ -84,12 +84,13 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
+body, #root, .App {
+  background-color: #0c0c14;
+  min-height: 100vh;
   font-family: var(--font-sans);
   font-size: var(--text-base);
   line-height: 1.7;
   color: var(--color-text-primary);
-  background-color: var(--color-bg-dark);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -1070,6 +1071,12 @@ a.contact-text:hover {
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+/* If you have a main container that wraps all content */
+.main-container {
+  background-color: #0c0c14;
+  min-height: 100vh;
 }
 
 

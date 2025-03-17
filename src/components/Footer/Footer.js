@@ -48,18 +48,15 @@ const Footer = () => {
             <a href="#skills" className="footer-link mt-sm">
               <span className="footer-icon">›</span> Skills
             </a>
-            <a href="#contact" className="footer-link mt-sm">
+            {/* <a href="#contact" className="footer-link mt-sm">
               <span className="footer-icon">›</span> Contact
-            </a>
+            </a> */}
           </div>
 
           <div className="footer-section">
-            <h3 className="footer-title">Contact</h3>
+            <h3 className="footer-title">Get In Touch</h3>
             <a href="mailto:yamiparam@gmail.com" className="footer-link">
               <i className="footer-icon fas fa-envelope"></i> yamiparam@gmail.com
-            </a>
-            <a href="tel:+16824054326" className="footer-link mt-sm">
-              <i className="footer-icon fas fa-phone"></i> +1 682-405-4326
             </a>
             <p className="footer-link mt-sm">
               <i className="footer-icon fas fa-map-marker-alt"></i> Dallas, US

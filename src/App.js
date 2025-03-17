@@ -12,7 +12,7 @@ import Education from './routes/Education/Education';
 import Experience from './routes/Experience/Experience';
 import Portfolio from './routes/Portfolio/Portfolio';
 import Skills from './routes/Skills/Skills';
-import Contact from './routes/Contact/Contact';
+// import Contact from './routes/Contact/Contact';
 import Footer from './components/Footer/Footer';
 
 // CSS
@@ -161,9 +161,9 @@ const App = () => {
                 </div>
 
                 {/* Contact Section */}
-                <div ref={contactRef}>
+                {/* <div ref={contactRef}>
                   <Contact />
-                </div>
+                </div> */}
               </>
             } />
             <Route path="*" element={<Navigate to="/about" />} />

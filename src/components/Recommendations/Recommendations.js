@@ -73,7 +73,7 @@ const Recommendations = () => {
 
   return (
     <section id="recommendations" className="recommendations-section">
-      <div className="section-container">
+      <div className="container">
         <div className="section-header">
           <h2 className="section-title">Recommendations</h2>
           <div className="section-underline"></div>

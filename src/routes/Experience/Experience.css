@@ -286,3 +286,9 @@
     padding-top: 60px;
   }
 }
+
+.section, 
+.experience-section {
+  padding: 4rem 0;
+  color: white;
+}
