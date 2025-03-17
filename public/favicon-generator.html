@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PS Favicon Generator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #1a1a2e;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        .favicon-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .favicon {
+            width: 64px;
+            height: 64px;
+            background-color: #6c5ce7; /* Purple color matching your theme */
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            font-size: 28px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .favicon-large {
+            width: 192px;
+            height: 192px;
+            font-size: 84px;
+            border-radius: 24px;
+        }
+        
+        .instructions {
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            color: white;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        h1 {
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .favicon-row {
+            display: flex;
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="favicon-container">
+        <h1>PS Favicon Generator</h1>
+        
+        <div class="favicon-row">
+            <div class="favicon" id="favicon16">PS</div>
+            <div class="favicon" id="favicon32">PS</div>
+            <div class="favicon favicon-large" id="favicon192">PS</div>
+        </div>
+        
+        <div class="instructions">
+            <p><strong>Instructions:</strong></p>
+            <ol>
+                <li>Right-click on any of the icons above</li>
+                <li>Select "Save image as..."</li>
+                <li>Save the favicon in 16px, 32px, and 192px sizes</li>
+                <li>Convert the images to .ico format using an online converter (like favicon.io)</li>
+                <li>Replace the favicon.ico and logo192.png files in your public folder</li>
+            </ol>
+            <p>Alternatively, take a screenshot and crop it to create your icon files.</p>
+        </div>
+    </div>
+</body>
+</html> 
