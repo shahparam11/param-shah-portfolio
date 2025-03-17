@@ -20,6 +20,7 @@ const App = () => {
   // State
   const [currentSection, setCurrentSection] = useState('about');
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   // Refs for sections
   const aboutRef = useRef(null);
@@ -43,31 +44,39 @@ const App = () => {
 
   // Scroll to section function - wrapped in useCallback to maintain reference stability
   const scrollToSection = useCallback((section) => {
-    const ref = sectionRefs[section];
-    if (ref && ref.current) {
-      ref.current.scrollIntoView({ behavior: 'smooth' });
+    try {
+      const ref = sectionRefs[section];
+      if (ref && ref.current) {
+        ref.current.scrollIntoView({ behavior: 'smooth' });
+      }
+    } catch (err) {
+      console.error("Error scrolling to section:", err);
     }
   }, [sectionRefs]);
 
   // Handle scroll to update active section
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight / 3;
-      
-      // Check which section is in view
-      for (const section in sectionRefs) {
-        const ref = sectionRefs[section];
-        if (ref.current) {
-          const offsetTop = ref.current.offsetTop;
-          const height = ref.current.offsetHeight;
-          
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + height) {
-            setCurrentSection(section);
-            // Update URL without causing a page reload
-            window.history.replaceState(null, null, `/${section}`);
-            break;
+      try {
+        const scrollPosition = window.scrollY + window.innerHeight / 3;
+        
+        // Check which section is in view
+        for (const section in sectionRefs) {
+          const ref = sectionRefs[section];
+          if (ref.current) {
+            const offsetTop = ref.current.offsetTop;
+            const height = ref.current.offsetHeight;
+            
+            if (scrollPosition >= offsetTop && scrollPosition < offsetTop + height) {
+              setCurrentSection(section);
+              // Update URL without causing a page reload
+              window.history.replaceState(null, null, `/${section}`);
+              break;
+            }
           }
         }
+      } catch (err) {
+        console.error("Error handling scroll:", err);
       }
     };
 
@@ -85,14 +94,30 @@ const App = () => {
 
   // Check URL on initial load to scroll to the right section
   useEffect(() => {
-    const path = window.location.pathname.substring(1) || 'about';
-    if (sectionRefs[path] && sectionRefs[path].current) {
-      // Small delay to ensure DOM is fully loaded
-      setTimeout(() => {
-        scrollToSection(path);
-      }, 100);
+    try {
+      const path = window.location.pathname.substring(1) || 'about';
+      if (sectionRefs[path] && sectionRefs[path].current) {
+        // Small delay to ensure DOM is fully loaded
+        setTimeout(() => {
+          scrollToSection(path);
+        }, 100);
+      }
+    } catch (err) {
+      console.error("Error handling initial navigation:", err);
+      setError("Navigation error. Please refresh the page.");
     }
   }, [scrollToSection, sectionRefs]);
+
+  // Error fallback
+  if (error) {
+    return (
+      <div className="error-container">
+        <h1>Something went wrong</h1>
+        <p>{error}</p>
+        <button onClick={() => window.location.reload()}>Refresh Page</button>
+      </div>
+    );
+  }
 
   return (
     <Router>
