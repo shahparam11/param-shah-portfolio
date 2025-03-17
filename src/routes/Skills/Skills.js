@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaReact, FaNodeJs, FaJava, FaDocker, FaAws, FaWindows, FaLinux, FaGitAlt, FaGithub, FaGitlab, FaJira, FaServer, FaUserFriends } from 'react-icons/fa';
+import { FaReact, FaNodeJs, FaJava, FaDocker, FaAws, FaWindows, FaLinux, FaGitAlt, FaGithub, FaGitlab, FaJira, FaUserFriends } from 'react-icons/fa';
 import { SiJavascript, SiTypescript, SiPython, SiVuedotjs, SiAngular, SiNextdotjs, SiDjango, SiFlutter, 
   SiMysql, SiPostgresql, SiMongodb, SiGooglecloud, SiDart, SiKubernetes, SiCircleci, SiGithubactions, 
   SiApache, SiApachetomcat, SiPostman, SiFigma } from 'react-icons/si';
-import { TbTestPipe } from 'react-icons/tb';
 import { DiSqllite } from 'react-icons/di';
 import './Skills.css';
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaGithub, FaExternalLinkAlt, FaCode, FaInfoCircle } from 'react-icons/fa';
+import { FaGithub, FaInfoCircle } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import './Portfolio.css';
 

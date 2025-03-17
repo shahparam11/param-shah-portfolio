@@ -1,8 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaArrowDown, FaReact, FaNodeJs, FaDatabase, FaFigma, FaGithub, FaExternalLinkAlt, FaJava, FaDocker, FaAws } from 'react-icons/fa';
-import { SiJavascript, SiTypescript, SiPython, SiTailwindcss, SiMongodb, SiMysql, SiPostgresql, SiFlutter, SiVuedotjs, SiAngular, SiNextdotjs, SiDjango, SiGooglecloud } from 'react-icons/si';
 import Recommendations from './components/Recommendations/Recommendations';
 
 // Components
@@ -32,8 +30,8 @@ const App = () => {
   const educationRef = useRef(null);
   const recommendationsRef = useRef(null);
 
-  // Get all section refs
-  const sectionRefs = {
+  // Get all section refs - wrapped in useMemo to prevent recreation on every render
+  const sectionRefs = useMemo(() => ({
     about: aboutRef,
     experience: experienceRef,
     projects: projectsRef,
@@ -41,15 +39,15 @@ const App = () => {
     education: educationRef,
     recommendations: recommendationsRef,
     contact: contactRef
-  };
+  }), []);
 
-  // Scroll to section function
-  const scrollToSection = (section) => {
+  // Scroll to section function - wrapped in useCallback to maintain reference stability
+  const scrollToSection = useCallback((section) => {
     const ref = sectionRefs[section];
     if (ref && ref.current) {
       ref.current.scrollIntoView({ behavior: 'smooth' });
     }
-  };
+  }, [sectionRefs]);
 
   // Handle scroll to update active section
   useEffect(() => {
@@ -94,7 +92,7 @@ const App = () => {
         scrollToSection(path);
       }, 100);
     }
-  }, []);
+  }, [scrollToSection, sectionRefs]);
 
   return (
     <Router>
