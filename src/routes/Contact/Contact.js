@@ -27,7 +27,7 @@ const Contact = () => {
                   <i className="fas fa-map-marker-alt"></i>
                 </div>
                 <span className="contact-text">
-                  Dallas, US
+                  Dallas, TX
                 </span>
               </div>
               <div className="contact-item mt-sm">

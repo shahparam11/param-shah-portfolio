@@ -18,17 +18,17 @@ const BuiltWithSection = () => {
     <div className="built-with-section">
       <h3 className="footer-heading">Built With</h3>
       <div className="heading-underline"></div>
-      
+
       <div className="tech-grid">
         {technologies.map((tech, index) => (
-          <motion.div 
+          <motion.div
             className="tech-card"
             key={tech.name}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3, delay: index * 0.1 }}
-            whileHover={{ 
-              y: -5, 
+            whileHover={{
+              y: -5,
               boxShadow: "0 8px 15px rgba(0,0,0,0.2)"
             }}
           >
@@ -39,9 +39,11 @@ const BuiltWithSection = () => {
           </motion.div>
         ))}
       </div>
-      
+
       <div className="ai-evolution-message">
-        <p>In this era of AI evolution, the boundary between human and machine creativity continues to blur. This portfolio represents a fusion of traditional development and AI-assisted design.</p>
+        <p>In this era of AI evolution, the boundary between human and machine creativity continues to blur.</p>
+        <p>This portfolio represents a fusion of traditional development and AI-assisted design.</p>
+        <p style={{ textAlign: 'right' }}>-Param</p>
       </div>
     </div>
   );
@@ -60,8 +62,8 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-container">
-        <button 
-          className="back-to-top" 
+        <button
+          className="back-to-top"
           onClick={scrollToTop}
           aria-label="Back to top"
         >
@@ -108,26 +110,26 @@ const Footer = () => {
               <i className="footer-icon fas fa-envelope"></i> yamiparam@gmail.com
             </a>
             <p className="footer-link mt-sm">
-              <i className="footer-icon fas fa-map-marker-alt"></i> Dallas, US
+              <i className="footer-icon fas fa-map-marker-alt"></i> Dallas, TX
             </p>
           </div>
 
           <div className="footer-section">
             <h3 className="footer-title">Follow Me</h3>
             <div className="footer-social">
-              <a 
-                href="https://github.com/shahparam11" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://github.com/shahparam11"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="footer-social-link"
                 aria-label="GitHub Profile"
               >
                 <FaGithub />
               </a>
-              <a 
-                href="https://linkedin.com/in/param-shah-88a71421a" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://linkedin.com/in/param-shah-88a71421a"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="footer-social-link"
                 aria-label="LinkedIn Profile"
               >
