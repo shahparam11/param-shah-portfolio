@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <!-- Inline SVG favicon to prevent loading issues -->
-    <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%236c5ce7'/><text x='16' y='20' font-family='Arial' font-size='16' font-weight='bold' text-anchor='middle' fill='white'>PS</text></svg>" />
+    <!-- Inline SVG favicon with URI encoding for maximum compatibility -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%236c5ce7'/%3E%3Ctext x='16' y='20' font-family='Arial' font-size='16' font-weight='bold' text-anchor='middle' fill='white'%3EPS%3C/text%3E%3C/svg%3E" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#6c5ce7" />
     <meta
@@ -11,7 +11,7 @@
       content="Param Shah - Software Development Engineer Portfolio"
     />
     <!-- Using simplified manifest without icon references -->
-    <link rel="manifest" href="/manifest.json" />
+    <link rel="manifest" href="/manifest.json" crossorigin="use-credentials" />
     <title>Param Shah | Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- FontAwesome removed to fix CORS issues -->
