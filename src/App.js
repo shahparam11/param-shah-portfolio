@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { motion, AnimatePresence } from 'framer-motion';
 import { Canvas } from '@react-three/fiber';
 import { Stars } from '@react-three/drei';
-import { useInView } from 'react-intersection-observer';
 
 // Components
 import NavBar from './routes/NavBar/NavBar';
