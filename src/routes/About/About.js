@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import './About.css';
 
 // Import profile image from assets folder
-import profileImage from '../../assets/personal-photo1.jpg';
+import profileImage from '../../assets/personal-photo2.jpg';
 import resumePDF from '../../assets/resume.pdf';
 
 const About = ({ scrollToSection }) => {
