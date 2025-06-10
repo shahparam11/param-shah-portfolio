@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { AnimatePresence } from "framer-motion";
 import { Calendar, MapPin, Building, GraduationCap } from 'lucide-react';
 
 const Experience = () => {
