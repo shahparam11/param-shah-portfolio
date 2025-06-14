@@ -38,20 +38,30 @@ const NavBar = () => {
   };
 
   // Section observers for active navigation
-  const sectionRefs = {};
-  navItems.forEach(item => {
-    const { ref, inView } = useInView({
-      threshold: 0.3,
-      rootMargin: '-100px 0px -100px 0px'
-    });
-    sectionRefs[item.id] = { ref, inView };
-    
-    useEffect(() => {
-      if (inView) {
-        setActiveSection(item.id);
-      }
-    }, [inView, item.id]);
-  });
+  const viewOptions = { threshold: 0.3, rootMargin: '-100px 0px -100px 0px' };
+
+  const { ref: heroRef, inView: heroInView } = useInView(viewOptions);
+  const { ref: aboutRef, inView: aboutInView } = useInView(viewOptions);
+  const { ref: skillsRef, inView: skillsInView } = useInView(viewOptions);
+  const { ref: experienceRef, inView: experienceInView } = useInView(viewOptions);
+  const { ref: projectsRef, inView: projectsInView } = useInView(viewOptions);
+  const { ref: contactRef, inView: contactInView } = useInView(viewOptions);
+
+  useEffect(() => { if (heroInView) setActiveSection('hero'); }, [heroInView]);
+  useEffect(() => { if (aboutInView) setActiveSection('about'); }, [aboutInView]);
+  useEffect(() => { if (skillsInView) setActiveSection('skills'); }, [skillsInView]);
+  useEffect(() => { if (experienceInView) setActiveSection('experience'); }, [experienceInView]);
+  useEffect(() => { if (projectsInView) setActiveSection('projects'); }, [projectsInView]);
+  useEffect(() => { if (contactInView) setActiveSection('contact'); }, [contactInView]);
+
+  const sectionRefs = {
+    hero: heroRef,
+    about: aboutRef,
+    skills: skillsRef,
+    experience: experienceRef,
+    projects: projectsRef,
+    contact: contactRef,
+  };
 
   return (
     <>
@@ -228,7 +238,7 @@ const NavBar = () => {
       </motion.nav>
 
       {/* Section refs for intersection observer */}
-      {Object.entries(sectionRefs).map(([id, { ref }]) => (
+      {Object.entries(sectionRefs).map(([id, ref]) => (
         <div key={id} ref={ref} id={id} className="absolute" />
       ))}
     </>
